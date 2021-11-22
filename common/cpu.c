@@ -470,6 +470,11 @@ int x264_cpu_num_processors( void )
     return ncpu;
 
 #else
-    return 1;
+    /*
+     * ffmpeg.wasm: manually set the number of 
+     * processor as it cannot be detected in 
+     * emscripten environment.
+     */
+    return 4;
 #endif
 }
